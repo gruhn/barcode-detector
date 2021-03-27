@@ -1,0 +1,27 @@
+{
+  "name": "barcode-detector",
+  "version": "0.4.0",
+  "author": {
+    "name": "Niklas Gruhn",
+    "email": "niklas@gruhn.me"
+  },
+  "license": "MIT",
+  "repository": "github:gruhn/barcode-detector",
+  "bugs": "https://github.com/gruhn/barcode-detector/issues",
+  "description": "",
+  "source": "src/BarcodeDetector.ts",
+  "main": "dist/barcode-detector.js",
+  "exports": "./dist/barcode-detector.modern.js",
+  "module": "dist/barcode-detector.module.js",
+  "unpkg": "dist/barcode-detector.umd.js",
+  "scripts": {
+    "build": "./build-worker.sh && microbundle",
+    "dev": "microbundle watch"
+  },
+  "dependencies": {
+    "jsqr": "^1.3.1"
+  },
+  "devDependencies": {
+    "microbundle": "^0.13.0"
+  }
+}
