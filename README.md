@@ -1,5 +1,4 @@
-# `BarcodeDetector` Polyfill :construction: WIP :construction:
-
+# :construction: WIP: BarcodeDetector Polyfill :construction: 
 Spec compliant polyfill of the [Barcode Detection API](https://wicg.github.io/shape-detection-api/#barcode-detection-api).
 It can be used for barcode/QR-code recognition in images from various kinds of 
 sources including `<canvas>`, `<img>`, `<video>`, `Blob`, `ImageData`, ...
