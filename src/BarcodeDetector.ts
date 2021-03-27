@@ -80,7 +80,7 @@ export default class BarcodeDetector {
     } else {
       this.workerBusy = true
 
-      const imageData = imageDataFrom(image)
+      const imageData = await imageDataFrom(image)
       this.worker.postMessage(imageData, [imageData.data.buffer])
 
       try {

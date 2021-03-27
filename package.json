@@ -14,6 +14,7 @@
   "exports": "./dist/barcode-detector.modern.js",
   "module": "dist/barcode-detector.module.js",
   "unpkg": "dist/barcode-detector.umd.js",
+  "amdName": "BarcodeDetectorPolyfill",
   "scripts": {
     "build": "./build-worker.sh && microbundle",
     "dev": "microbundle watch"

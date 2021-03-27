@@ -19,7 +19,24 @@ function imageDataFromCanvas(image : CanvasImageSource, width : number, height :
   return canvasCtx.getImageData(0, 0, width, height);
 }
 
-export function imageDataFrom(image : ImageBitmapSource) : ImageData {
+async function imageDataFromBlob(blob : Blob) : Promise<ImageData> {
+  // turn blob into an img element and pass back to imageDataFrom
+  const url = URL.createObjectURL(blob)
+
+  const image = new Image()
+  image.src = url
+
+  await new Promise((resolve, reject) => {
+    image.onload = resolve
+    image.onerror = reject
+  })
+
+  URL.revokeObjectURL(url)
+
+  return imageDataFrom(image)
+}
+
+export async function imageDataFrom(image : ImageBitmapSource) : Promise<ImageData> {
   // spec quoted from:
   // https://wicg.github.io/shape-detection-api/#image-sources-for-detection
 
@@ -101,8 +118,7 @@ export function imageDataFrom(image : ImageBitmapSource) : ImageData {
 
   } else if (image instanceof Blob) {
 
-    // TODO
-    return undefined
+    return imageDataFromBlob(image)
 
   } else if (image instanceof ImageData) {
 
