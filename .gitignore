@@ -1,5 +1,4 @@
 node_modules/
 dist/
-src/inline-worker.umd.js
-src/inline-worker-code.js
-src/inline-worker.umd.js.map
+
+src/detectors/workers/*/inline-worker.js

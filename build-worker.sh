@@ -2,16 +2,23 @@
 
 set -e
 
-./node_modules/microbundle/dist/cli.js \
-  -i src/DetectWorker.js \
-  -o src/inline-worker.umd.js \
+path=src/detectors/workers
+
+npm run build -- \
+  -i $path/jsqr/worker.ts \
+  -o $path/jsqr/temp.umd.js \
   -f umd \
-  --sourcemap false \
+  --tsconfig $path/tsconfig.json \
   --external none
 
-rm -f src/inline-worker-code.js
-touch src/inline-worker-code.js
+rm -f $path/jsqr/inline-worker.js
+touch $path/jsqr/inline-worker.js
 
-echo 'export default URL.createObjectURL(new Blob([`' >> src/inline-worker-code.js
-cat src/inline-worker.umd.js >> src/inline-worker-code.js
-echo '`], { type: "text/javascript" }));' >> src/inline-worker-code.js
+echo 'export default URL.createObjectURL(new Blob([`' >> $path/jsqr/inline-worker.js
+cat $path/jsqr/temp.umd.js >> $path/jsqr/inline-worker.js
+echo '`], { type: "text/javascript" }));' >> $path/jsqr/inline-worker.js
+
+rm -f $path/jsqr/temp.umd.js
+# FIXME: don't generate these files:
+rm -f $path/jsqr/temp.umd.js.map
+rm -rf $path/jsqr/detectors

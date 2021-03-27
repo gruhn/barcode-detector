@@ -24,7 +24,7 @@ export default class SleepyWorker extends EventTarget {
     this.timeout = self.setTimeout(() => {
       this.worker.terminate()
       this.worker = undefined
-    }, 1000)
+    }, 2500)
   }
 
 }

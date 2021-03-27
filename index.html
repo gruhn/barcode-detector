@@ -17,9 +17,7 @@
     multiple
   />
 
-  <div id="output">
-
-  </div>
+  <div id="output"></div>
   
 </body>
 <script src="dist/barcode-detector.umd.js"></script>
@@ -30,26 +28,6 @@
   const fileInput = document.querySelector("#fileInput")
   const output = document.querySelector("#output")
 
-  const imageElementFromFile = async file => {
-    const reader = new FileReader();
-
-    reader.readAsDataURL(file);
-
-    const result = await new Promise(resolve => { 
-      reader.onload = resolve
-    })
-    const dataURL = result.target.result;
-
-    const image = document.createElement("img");
-    image.src = dataURL;
-
-    await new Promise(resolve => { 
-      image.onload = resolve
-    })
-
-    return image;
-  }
-
   const barcodeDetector = new BarcodeDetector({ formats: ["qr_code"] })
 
   fileInput.onchange = event => {
@@ -58,7 +36,6 @@
     output.innerHTML = ""
 
     files.map(async file => {
-      // const image = await imageElementFromFile(file)
       const detectedCodes = await barcodeDetector.detect(file)
 
       const text = document.createTextNode(
@@ -68,7 +45,6 @@
       const pre = document.createElement("pre")
       pre.appendChild(text)
 
-      // output.appendChild(image)
       output.appendChild(pre)
     })
   }
