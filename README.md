@@ -26,15 +26,15 @@ For in-depth documentation checkout the [corresponding MDN page](https://develop
 ### Supported Formats
 
  - :x: `aztec`
- - :x: `code_128`
- - :x: `code_39`
- - :x: `code_93`
- - :x: `codabar`
+ - :heavy_check_mark: `code_128`
+ - :heavy_check_mark: `code_39`
+ - :heavy_check_mark: `code_93`
+ - :heavy_check_mark: `codabar`
  - :x: `data_matrix`
- - :x: `ean_13`
- - :x: `ean_8`
- - :x: `itf`
+ - :heavy_check_mark: `ean_13`
+ - :heavy_check_mark: `ean_8`
+ - :heavy_check_mark: `itf`
  - :x: `pdf417`
  - :heavy_check_mark: `qr_code` 
- - :x: `upc_a`
- - :x: `upc_e`
+ - :heavy_check_mark: `upc_a` (interpreted as `ean_13`)
+ - :heavy_check_mark: `upc_e` (interpreted as `ean_13`)

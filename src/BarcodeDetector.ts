@@ -2,9 +2,8 @@
 
 import { BarcodeDetectorOptions, BarcodeFormat, DetectedBarcode } from "./basic-types"
 import PartialDetector from "./detectors/PartialDetector"
-import PartialDetectorJsqr from "./detectors/PartialDetectorJsqr"
-
-console.log(new PartialDetectorJsqr());
+// import PartialDetectorJsqr from "./detectors/PartialDetectorJsqr"
+import PartialDetectorZbar from "./detectors/PartialDetectorZbar"
 
 const detectorForFormat : Map<BarcodeFormat, PartialDetector> = new Map([
   // [ "aztec" ],
@@ -17,13 +16,22 @@ const detectorForFormat : Map<BarcodeFormat, PartialDetector> = new Map([
   // [ "ean_8" ],
   // [ "itf" ],
   // [ "pdf417" ],
-  [ "qr_code", new PartialDetectorJsqr() ]
+  [ "qr_code", new PartialDetectorZbar() ]
   // [ "qr_code" ],
   // [ "upc_a" ],
   // [ "upc_e" ],
 ])
 
-const allSupportedFormats = [ ...detectorForFormat.keys() ]
+const allSupportedFormats : BarcodeFormat[] = [
+  "code_128",
+  "code_39",
+  "code_93",
+  "codabar",
+  "ean_13",
+  "ean_8",
+  "itf",
+  "qr_code"
+]
 
 export default class BarcodeDetector {
 
@@ -65,6 +73,9 @@ export default class BarcodeDetector {
     )
 
     const resultsFlat = [].concat(...results)
+
+    // TODO: if detector can detect multiple kinds of codes filter results
+    // by requested formats
 
     return resultsFlat
   }
