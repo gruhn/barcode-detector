@@ -25,11 +25,11 @@ For in-depth documentation checkout the [corresponding MDN page](https://develop
 
 ### Supported Formats
 
- - :x: `aztec`
+ - :heavy_check_mark: `aztec`
  - :heavy_check_mark: `code_128`
  - :heavy_check_mark: `code_39`
  - :heavy_check_mark: `code_93`
- - :heavy_check_mark: `codabar`
+ - :x: `codabar`
  - :x: `data_matrix`
  - :heavy_check_mark: `ean_13`
  - :heavy_check_mark: `ean_8`

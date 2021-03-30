@@ -8,6 +8,8 @@
 </head>
 <body>
 
+  <img src="github/code_93.png" id="code" />
+
   <input
     id="fileInput"
     type="file"
@@ -20,15 +22,17 @@
   <div id="output"></div>
   
 </body>
+<script type="text/javascript" src="https://unpkg.com/@zxing/library@latest"></script>
+
 <script src="dist/barcode-detector.umd.js"></script>
 <script>
-  if (!("BarcodeDetector" in window)) {
+  // if (!("BarcodeDetector" in window)) {
     window.BarcodeDetector = BarcodeDetectorPolyfill
-  }
+  // }
   const fileInput = document.querySelector("#fileInput")
   const output = document.querySelector("#output")
 
-  const barcodeDetector = new BarcodeDetector({ formats: ["qr_code"] })
+  const barcodeDetector = new BarcodeDetector()
 
   fileInput.onchange = event => {
     const files = [ ...event.target.files ];
