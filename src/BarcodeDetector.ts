@@ -7,9 +7,9 @@ import * as ZXing from "@zxing/library"
 const mapFormat = new Map<BarcodeFormat, ZXing.BarcodeFormat>([
 
   [ "aztec", ZXing.BarcodeFormat.AZTEC ],
-  [ "codabar", ZXing.BarcodeFormat.CODABAR ],
+  // [ "codabar", ZXing.BarcodeFormat.CODABAR ],
   [ "code_39", ZXing.BarcodeFormat.CODE_39 ],
-  [ "code_93", ZXing.BarcodeFormat.CODE_93 ],
+  // [ "code_93", ZXing.BarcodeFormat.CODE_93 ],
   [ "code_128", ZXing.BarcodeFormat.CODE_128 ],
   [ "data_matrix", ZXing.BarcodeFormat.DATA_MATRIX ],
   [ "ean_8", ZXing.BarcodeFormat.EAN_8 ],
@@ -19,10 +19,6 @@ const mapFormat = new Map<BarcodeFormat, ZXing.BarcodeFormat>([
   [ "qr_code", ZXing.BarcodeFormat.QR_CODE ],
   [ "upc_a", ZXing.BarcodeFormat.UPC_A ],
   [ "upc_e", ZXing.BarcodeFormat.UPC_E ]
-  // [ "", ZXing.BarcodeFormat.RSS_14 ],
-  // [ "", ZXing.BarcodeFormat.RSS_EXPANDED ],
-  // [ "", ZXing.BarcodeFormat.MAXICODE ],
-  // [ "", ZXing.BarcodeFormat.UPC_EAN_EXTENSION ],
 
 ]) 
 

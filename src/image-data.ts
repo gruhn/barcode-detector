@@ -3,14 +3,6 @@ function imageDataFromCanvas(image : CanvasImageSource, width : number, height :
   const canvas = document.createElement("canvas");
   const canvasCtx = canvas.getContext("2d");
 
-  // const scalingRatio = Math.min(
-  //   1,
-  //   canvas.width / width,
-  //   canvas.height / height
-  // );
-  // const widthScaled = scalingRatio * width;
-  // const heightScaled = scalingRatio * height;
-
   canvas.width = width;
   canvas.height = height;
 
@@ -56,16 +48,20 @@ export async function imageDataFrom(image : ImageBitmapSource) : Promise<ImageDa
     // is not supported or is disabled), or, if there is no such image, the 
     // first frame of the animation.
 
-    // [TODO]
+    // [SPEC]
     // If the ImageBitmapSource is an HTMLImageElement object that is in the 
     // Broken (HTML Standard §img-error) state, then reject the Promise with a 
     // new DOMException whose name is InvalidStateError, and abort any further 
     // steps.
-
-    // [TODO]
+    // [SPEC]
     // If the ImageBitmapSource is an HTMLImageElement object that is not fully 
     // decodable then reject the Promise with a new DOMException whose name is 
     // InvalidStateError, and abort any further steps
+    try {
+      image.decode()
+    } catch (_) {
+      throw new DOMException("HTMLImageElement is not decodable", "InvalidStateError")
+    }
 
     return imageDataFromCanvas(image, image.naturalWidth, image.naturalHeight)
 
@@ -76,6 +72,7 @@ export async function imageDataFrom(image : ImageBitmapSource) : Promise<ImageDa
 
   } else if (image instanceof HTMLVideoElement) {
 
+    // [SPEC]
     // If the ImageBitmapSource is an HTMLVideoElement object whose readyState 
     // attribute is either HAVE_NOTHING or HAVE_METADATA then reject the Promise 
     // with a new DOMException whose name is InvalidStateError, and abort any 
@@ -85,6 +82,7 @@ export async function imageDataFrom(image : ImageBitmapSource) : Promise<ImageDa
       throw new DOMException("", "InvalidStateError")
     }
 
+    // [SPEC]
     // When an ImageBitmapSource object represents an HTMLVideoElement, then 
     // the frame at the current playback position when the method with the 
     // argument is invoked must be used as the source image when processing the 

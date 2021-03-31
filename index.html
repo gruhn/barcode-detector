@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <img src="github/code_93.png" id="code" />
+  <img src="example_codes/upc_e.png" id="code" />
 
   <input
     id="fileInput"
@@ -23,12 +23,13 @@
   
 </body>
 <script type="text/javascript" src="https://unpkg.com/@zxing/library@latest"></script>
-
 <script src="dist/barcode-detector.umd.js"></script>
+
 <script>
   // if (!("BarcodeDetector" in window)) {
     window.BarcodeDetector = BarcodeDetectorPolyfill
   // }
+
   const fileInput = document.querySelector("#fileInput")
   const output = document.querySelector("#output")
 
