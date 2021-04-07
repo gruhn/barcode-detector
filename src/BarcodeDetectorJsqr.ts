@@ -1,19 +1,40 @@
-import PartialDetector from "./PartialDetector"
-import SleepyWorker from "./SleepyWorker"
-import inlineWorkerCode from "./workers/jsqr/inline-worker.js"
-import { DetectedBarcode } from "../basic-types"
-import { imageDataFrom } from "./image-data"
+// spec: https://wicg.github.io/shape-detection-api/#barcode-detection-api  
 
-export default class PartialDetectorJsqr implements PartialDetector {
+import { BarcodeDetectorOptions, BarcodeFormat, DetectedBarcode } from "./basic-types"
+import { imageDataFrom } from "./image-data"
+import  SleepyWorker  from "./SleepyWorker"
+import inlineWorkerCode from "./worker/inline-worker"
+
+const allSupportedFormats : BarcodeFormat[] = [ "qr_code" ]
+
+export default class BarcodeDetector {
 
   worker : SleepyWorker
   workerLoad : number
   messageCount : number
 
-  constructor() {
+  constructor (barcodeDetectorOptions? : BarcodeDetectorOptions) {
+    // SPEC: A series of BarcodeFormats to search for in the subsequent detect() calls. If not present then the UA SHOULD 
+    // search for all supported formats.
+    const formats = barcodeDetectorOptions?.formats ?? allSupportedFormats
+
+    // SPEC: If barcodeDetectorOptions.formats is present and empty, then throw a new TypeError.
+    if (formats.length === 0) {
+      throw new TypeError("") // TODO pick message
+    }
+
+    // SPEC: If barcodeDetectorOptions.formats is present and contains unknown, then throw a new TypeError.
+    if (formats.includes("unknown")) {
+      throw new TypeError("") // TODO pick message
+    }
+
     this.worker =  new SleepyWorker(inlineWorkerCode);
     this.workerLoad = 0
     this.messageCount = 0
+  }
+
+  static async getSupportedFormats() : Promise<BarcodeFormat[]> {
+    return allSupportedFormats
   }
 
   async detect(image : ImageBitmapSource) : Promise<DetectedBarcode[]> {
@@ -49,5 +70,4 @@ export default class PartialDetectorJsqr implements PartialDetector {
       return detectedBarcodes;
     }
   }
-
 }

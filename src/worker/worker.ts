@@ -1,5 +1,5 @@
 import jsQR, { QRCode } from "jsqr"
-import { DetectedBarcode } from "../../../basic-types"
+import { DetectedBarcode } from "../basic-types"
 
 declare var self: DedicatedWorkerGlobalScope;
 export {};
