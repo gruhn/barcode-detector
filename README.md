@@ -25,9 +25,9 @@ For in-depth documentation checkout the [corresponding MDN page](https://develop
 
 ### Supported Formats
 
-src/BarcodeDetectorJsqr.ts:
- - :X: `aztec`
- - :X: `code_128`
+`src/BarcodeDetectorJsqr.ts`:
+ - :x: `aztec`
+ - :x: `code_128`
  - :x: `code_39`
  - :x: `code_93`
  - :x: `codabar`
@@ -40,7 +40,7 @@ src/BarcodeDetectorJsqr.ts:
  - :x: `upc_a`
  - :x: `upc_e`
 
-src/BarcodeDetectorZXing.ts (not exposed at the moment):
+`src/BarcodeDetectorZXing.ts` (not exposed at the moment):
  - :heavy_check_mark: `aztec`
  - :heavy_check_mark: `code_128`
  - :heavy_check_mark: `code_39`
