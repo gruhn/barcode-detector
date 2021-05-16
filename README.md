@@ -21,6 +21,20 @@ if (!("BarcodeDetector" in window)) {
 
 ## Usage
 
+```js
+// pick barcode formats. Other formats will be ignored
+const barcodeDetector = new BarcodeDetector({ formats: ["qr_code"] })
+
+// directly pass an image element, video element, ...
+const barcodes = await barcodeDetector.detect(someImageSource)
+
+// can detect multiple barcodes in one image
+const [ barcode1, barcode2, ...evenMoreBarcodes ] = barcodes
+
+// access encoded string
+const { rawValue } = barcode1
+```
+
 For in-depth documentation checkout the [corresponding MDN page](https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API).
 
 ### Supported Formats
