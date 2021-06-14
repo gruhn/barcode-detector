@@ -1,5 +1,4 @@
-node_modules/
+**/node_modules/
 dist/
 .DS_Store
-
-src/detectors/workers/*/inline-worker.js
+inline-worker.js
