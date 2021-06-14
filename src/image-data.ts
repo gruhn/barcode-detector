@@ -105,7 +105,7 @@ export async function imageDataFrom(image : ImageBitmapSource) : Promise<ImageDa
     const canvasCtx = image.getContext("2d")
     return canvasCtx.getImageData(0, 0, image.width, image.height)
 
-  } else if (image instanceof ImageBitmap) {
+  } else if ('ImageBitmap' in window && image instanceof ImageBitmap) {
 
     return imageDataFromCanvas(image, image.width, image.height)
 
