@@ -5,6 +5,13 @@ sources including `<canvas>`, `<img>`, `<image>` (inside SVGs), `<video>`, `File
 
 [TODO: live demos]
 
+Design goals:
+ * spec compliance
+ * support as many barcode formats as possible
+ * detect multiple codes in one image
+ * provide position/coordinate information of detected codes
+ * sufficient performance to process live video streams
+
 ## Installation
 
 ```sh
