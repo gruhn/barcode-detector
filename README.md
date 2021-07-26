@@ -61,7 +61,7 @@ For in-depth documentation checkout the [corresponding MDN page](https://develop
  - :x: `upc_a`
  - :x: `upc_e`
 
-`src/BarcodeDetectorZXing.ts` (not exposed at the moment):
+`src/BarcodeDetectorZXing.ts` (not exposed at the moment. See [#1](https://github.com/gruhn/barcode-detector-polyfill/issues/1)):
  - :heavy_check_mark: `aztec`
  - :heavy_check_mark: `code_128`
  - :heavy_check_mark: `code_39`
