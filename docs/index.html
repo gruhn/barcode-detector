@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BarcodeDetector Polyfill</title>
+</head>
+<body>
+  <p>
+    Upload one or multiple images depicting a barcode/qrcode.
+    If valid and supported, the decoded result should be displayed below. 
+  </p>
+
+  <ul>
+    <li>
+      <a href="https://github.com/gruhn/barcode-detector/tree/master/example_codes">
+        example barcodes
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/gruhn/barcode-detector/tree/master/docs/index.html">
+        demo source
+      </a>
+    </li>
+  </ul>
+
+  <input
+    id="fileInput"
+    type="file"
+    name="image"
+    accept="image/*"
+    capture="environment"
+    multiple
+  />
+
+  <div id="output"></div>
+</body>
+<script type="text/javascript" src="https://unpkg.com/@zxing/library@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/barcode-detector@1.0.1/dist/barcode-detector.umd.js"></script>
+
+<script>
+  window.BarcodeDetector = BarcodeDetectorPolyfill
+
+  const fileInput = document.querySelector("#fileInput")
+  const output = document.querySelector("#output")
+
+  const barcodeDetector = new BarcodeDetector()
+
+  fileInput.onchange = async event => {
+    const files = [ ...event.target.files ];
+
+    output.innerHTML = "processing..."
+
+    const detectedCodesPerFile = await Promise.all(
+      files.map(async file => {
+        return [ file.name, await barcodeDetector.detect(file) ]
+      })
+    )
+
+    output.innerText = ""
+
+    detectedCodesPerFile.forEach(([ fileName, detectedCodes ]) => {
+      const title = document.createElement("h4")
+      title.innerText = fileName
+
+      output.appendChild(title)
+
+      const text = document.createTextNode(
+        JSON.stringify(detectedCodes, null, 2)
+      )
+
+      const pre = document.createElement("pre")
+      pre.appendChild(text)
+
+      output.appendChild(pre)
+    })
+  }
+
+</script>
+</html>

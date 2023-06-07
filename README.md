@@ -3,7 +3,7 @@ Spec compliant polyfill of the [Barcode Detection API](https://wicg.github.io/sh
 It can be used for barcode/QR-code recognition in images from various kinds of 
 sources including `<canvas>`, `<img>`, `<image>` (inside SVGs), `<video>`, `File`, `Blob`, `ImageData`, `ImageBitmap`, `OffscreenCanvas`.
 
-[TODO: live demos]
+[simple demo](https://gruhn.github.io/barcode-detector/index.html)
 
 Design goals:
  * spec compliance
