@@ -11,7 +11,12 @@
   "description": "",
   "source": "src/BarcodeDetector.ts",
   "main": "dist/barcode-detector.js",
-  "exports": { ".": { "import": "./dist/barcode-detector.modern.js", "types": "./dist/BarcodeDetector.d.ts" }},
+  "exports": {
+    ".": {
+      "import": "./dist/barcode-detector.js",
+      "types": "./dist/BarcodeDetector.d.ts"
+    }
+  },
   "module": "dist/barcode-detector.module.js",
   "unpkg": "dist/barcode-detector.umd.js",
   "amdName": "BarcodeDetectorPolyfill",
