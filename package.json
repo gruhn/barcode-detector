@@ -33,5 +33,11 @@
   "devDependencies": {
     "microbundle": "^0.13.3",
     "semantic-release": "^17.4.3"
-  }
+  },
+  "files": [
+    "dist",
+    "example_codes",
+    "src",
+    "!src/worker/node_modules"
+  ]
 }
