@@ -1,7 +1,7 @@
 // spec: https://wicg.github.io/shape-detection-api/#barcode-detection-api  
 
-import { BarcodeDetectorOptions, BarcodeFormat, DetectedBarcode } from "./basic-types"
-import { imageDataFrom } from "./image-data"
+import { BarcodeDetectorOptions, BarcodeFormat, DetectedBarcode } from "./basic-types.js"
+import { imageDataFrom } from "./image-data.js"
 import * as ZXing from "@zxing/library"
 
 const mapFormat = new Map<BarcodeFormat, ZXing.BarcodeFormat>([

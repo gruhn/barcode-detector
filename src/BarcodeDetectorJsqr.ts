@@ -1,9 +1,9 @@
 // spec: https://wicg.github.io/shape-detection-api/#barcode-detection-api  
 
-import { BarcodeDetectorOptions, BarcodeFormat, DetectedBarcode } from "./basic-types"
-import { imageDataFrom } from "./image-data"
-import  SleepyWorker  from "./SleepyWorker"
-import inlineWorkerCode from "./worker/inline-worker"
+import { BarcodeDetectorOptions, BarcodeFormat, DetectedBarcode } from "./basic-types.js"
+import { imageDataFrom } from "./image-data.js"
+import  SleepyWorker  from "./SleepyWorker.js"
+import inlineWorkerCode from "./worker/inline-worker.js"
 
 const allSupportedFormats : BarcodeFormat[] = [ "qr_code" ]
 

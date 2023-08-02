@@ -13,11 +13,13 @@
   "main": "dist/barcode-detector.js",
   "exports": {
     ".": {
-      "import": "./dist/barcode-detector.js",
-      "types": "./dist/BarcodeDetector.d.ts"
+      "types": "./dist/BarcodeDetector.d.ts",
+      "import": "./dist/barcode-detector.mjs",
+      "require": "./dist/barcode-detector.js"
     }
   },
-  "module": "dist/barcode-detector.module.js",
+  "types": "dist/BarcodeDetector.d.ts",
+  "module": "dist/barcode-detector.mjs",
   "unpkg": "dist/barcode-detector.umd.js",
   "amdName": "BarcodeDetectorPolyfill",
   "scripts": {
@@ -31,5 +33,11 @@
   "devDependencies": {
     "microbundle": "^0.13.3",
     "semantic-release": "^17.4.3"
-  }
+  },
+  "files": [
+    "dist",
+    "example_codes",
+    "src",
+    "!src/worker/node_modules"
+  ]
 }
