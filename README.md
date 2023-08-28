@@ -1,4 +1,6 @@
-# :construction: WIP: BarcodeDetector Polyfill :construction: 
+# :point_up: package ownership transfered to [@Sec-ant](https://github.com/Sec-ant). Development continues at [@sec-ant/barcode-detector](https://github.com/Sec-ant/barcode-detector) :point_up:
+
+# BarcodeDetector Polyfill 
 Spec compliant polyfill of the [Barcode Detection API](https://wicg.github.io/shape-detection-api/#barcode-detection-api).
 It can be used for barcode/QR-code recognition in images from various kinds of 
 sources including `<canvas>`, `<img>`, `<image>` (inside SVGs), `<video>`, `File`, `Blob`, `ImageData`, `ImageBitmap`, `OffscreenCanvas`.
